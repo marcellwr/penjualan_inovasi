@@ -6,7 +6,7 @@ $baru=$_POST['baru'];
 $ulang=$_POST['ulang'];
 
 $cek=mysqli_query($koneksi,"select * from admin where pass='$lama' and uname='$user'");
-if(mysql_num_rows($cek)==1){
+if(mysqli_num_rows($cek)==1){
 	if($baru==$ulang){
 		$b = md5($baru);
 		mysqli_query($koneksi,"update admin set pass='$b' where uname='$user'");

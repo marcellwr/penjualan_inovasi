@@ -6,7 +6,7 @@ include 'header.php';
 <br/><br/>
 <?php 
 if(isset($_GET['pesan'])){
-	$pesan=mysql_real_escape_string($_GET['pesan']);
+	$pesan=mysqli_real_escape_string($_GET['pesan']);
 	if($pesan=="gagal"){
 		echo "<div class='alert alert-danger'>Password gagal di ganti !!     Periksa Kembali Password yang anda masukkan !!</div>";
 	}else if($pesan=="tdksama"){

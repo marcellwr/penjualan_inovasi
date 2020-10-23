@@ -40,7 +40,7 @@ $pdf->Cell(2, 0.8, 'jumlah', 1, 1, 'C');
 $pdf->SetFont('Arial','',10);
 $no=1;
 $query=mysqli_query($koneksi,"select * from barang");
-while($lihat=mysql_fetch_array($query)){
+while($lihat=mysqli_fetch_array($query)){
 	$pdf->Cell(1, 0.8, $no , 1, 0, 'C');
 	$pdf->Cell(7, 0.8, $lihat['nama'],1, 0, 'C');
 	$pdf->Cell(3, 0.8, $lihat['jenis'], 1, 0,'C');
