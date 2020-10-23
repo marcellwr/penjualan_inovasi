@@ -7,7 +7,7 @@
 
 <?php 
 $periksa=mysqli_query($koneksi,"select * from barang where jumlah <=3");
-while($q=mysqli_fetch_array($periksa)){	
+while($q=mysqli_fetch_assoc($periksa)){	
 	if($q['jumlah']<=3){	
 		?>	
 		<script>
@@ -22,22 +22,15 @@ while($q=mysqli_fetch_array($periksa)){
 }
 ?>
 <?php 
-$per_hal=10;
+$per_hal=10000;
 $jumlah_record=mysqli_query($koneksi,"SELECT COUNT(*) from barang");
-$jum=mysqli_result($jumlah_record, 0);
-$halaman=ceil($jum / $per_hal);
+$jum=mysqli_fetch_assoc($jumlah_record);
 $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 $start = ($page - 1) * $per_hal;
 ?>
 <div class="col-md-12">
 	<table class="col-md-2">
 		<tr>
-			<td>Jumlah Record</td>		
-			<td><?php echo $jum; ?></td>
-		</tr>
-		<tr>
-			<td>Jumlah Halaman</td>	
-			<td><?php echo $halaman; ?></td>
 		</tr>
 	</table>
 	<a style="margin-bottom:10px" href="lap_barang.php" target="_blank" class="btn btn-default pull-right"><span class='glyphicon glyphicon-print'></span>  Cetak</a>
