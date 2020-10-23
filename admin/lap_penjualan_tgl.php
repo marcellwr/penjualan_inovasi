@@ -58,18 +58,18 @@ while($lihat=mysql_fetch_array($query)){
 }
 $q=mysqli_query($koneksi,"select sum(total_harga) as total from barang_laku where tanggal>='$dari' and tanggal<='$sampai' order by tanggal asc");
 
-while($total=mysql_fetch_array($q)){
+while($total=mysqli_fetch_array($q)){
 	$pdf->Cell(17, 0.8, "Total Pendapatan", 1, 0,'C');		
 	$pdf->Cell(4.5, 0.8, "Rp. ".number_format($total['total'])." ,-", 1, 0,'C');	
 }
 $qu=mysqli_query($koneksi,"select sum(laba) as total_laba from barang_laku where tanggal>='$dari' and tanggal<='$sampai' order by tanggal asc");
 
-while($tl=mysql_fetch_array($qu)){
+while($tl=mysqli_fetch_array($qu)){
 	$pdf->Cell(4, 0.8, "Rp. ".number_format($tl['total_laba'])." ,-", 1, 1,'C');	
 }
 $pdf->Output("laporan_buku.pdf","I");
 
-
+//MARCELL BANGSAT
 
 ?>
 
